@@ -5,6 +5,8 @@
 
 int main() {
 
+
+
     List init;
 
     init.AddNode(3);
@@ -13,6 +15,10 @@ int main() {
     init.PrintList();
     init.DeleteNode(3);
     init.PrintList();
+
+	
+
+
 
     system("pause>nul");
     return 0;
