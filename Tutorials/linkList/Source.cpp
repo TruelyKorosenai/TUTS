@@ -1,12 +1,10 @@
 #include "List.h"
-#include <stdlib.h>
+#include "binaryTree.h"
+#include <iostream>
 
 
 
 int main() {
-
-
-
     List init;
 
     init.AddNode(3);
@@ -16,10 +14,18 @@ int main() {
     init.DeleteNode(3);
     init.PrintList();
 
-	
+    binaryTree init2;
 
-
-
+    init2.insert(1);
+    init2.insert(2);
+    init2.insert(3);
+    init2.insert(4);
+    init2.insert(5);
+    init2.search(4);
+    std::cout << init2.search(4)->key_value <<  std::endl;
+    init2.destroy_tree();
+    std::cout << init2.search(4)->key_value << std::endl;
     system("pause>nul");
+
     return 0;
 }
