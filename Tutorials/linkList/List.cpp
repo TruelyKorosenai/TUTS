@@ -5,9 +5,9 @@
 /*******Constructors/Deconstructor*******/
 /****************************************/
 List::List (){
-	head = NULL;
-	curr = NULL;
-	temp = NULL;
+	m_head = NULL;
+	m_curr = NULL;
+	m_temp = NULL;
 }
 
 List::~List (){
@@ -22,38 +22,38 @@ void List::AddNode (int addData){
 	n->next = NULL;
 	n->data = addData;
 
-	if (head != NULL){
-		curr = head;
-        while (curr->next != NULL) {
-            curr = curr->next;
+	if (m_head != NULL){
+		m_curr = m_head;
+        while (m_curr->next != NULL) {
+            m_curr = m_curr->next;
         }
-        curr->next = n;
+        m_curr->next = n;
 	}
     else {
-        head = n;
+        m_head = n;
     }
 }
 
 void List::DeleteNode (int delData){
     nodePtr delPtr = NULL;
-    temp = head;
-    curr = head;
+    m_temp = m_head;
+    m_curr = m_head;
     
-    while (curr != NULL && curr->data != delData) {
-        temp = curr;
-        curr = curr->next;
+    while (m_curr != NULL && m_curr->data != delData) {
+        m_temp = m_curr;
+        m_curr = m_curr->next;
     }
-    if (curr == NULL) {
+    if (m_curr == NULL) {
         
         std::cout << delData << " was not found " << std::endl;
     }
     else {
-        delPtr = curr;
-        curr = curr->next;
-        temp->next = curr;
-        if (delPtr == head) {
-            head = head->next;
-            temp = NULL;
+        delPtr = m_curr;
+        m_curr = m_curr->next;
+        m_temp->next = m_curr;
+        if (delPtr == m_head) {
+            m_head = m_head->next;
+            m_temp = NULL;
 
         }
         delete delPtr;
@@ -62,10 +62,10 @@ void List::DeleteNode (int delData){
 }
 
 void List::PrintList (){
-    curr = head;
-    while (curr != NULL) {
-        std::cout << curr->data << std::endl;
-        curr = curr->next;
+    m_curr = m_head;
+    while (m_curr != NULL) {
+        std::cout << m_curr->data << std::endl;
+        m_curr = m_curr->next;
 
     }
     

@@ -14,9 +14,9 @@ private:
 		node* next;
 	}*nodePtr;
 
-	nodePtr head;
-	nodePtr curr;
-	nodePtr temp;
+	nodePtr m_head;
+	nodePtr m_curr;
+	nodePtr m_temp;
 
 public:
 	void AddNode (int addData);    // Function That add new data to the node

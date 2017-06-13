@@ -22,9 +22,9 @@ int main() {
     init2.insert(4);
     init2.insert(5);
     init2.search(4);
-    std::cout << init2.search(4)->key_value <<  std::endl;
+    std::cout << init2.search(4)->m_keyValue <<  std::endl;
     init2.destroy_tree();
-    std::cout << init2.search(4)->key_value << std::endl;
+    
     system("pause>nul");
 
     return 0;
