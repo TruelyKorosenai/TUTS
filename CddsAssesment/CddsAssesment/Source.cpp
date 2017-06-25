@@ -25,26 +25,26 @@ int main() {
     //*********************************************************************************************************************
     //******************************************BINARY TREE****************************************************************
     //*********************************************************************************************************************
-   /*
-  binaryTree btree;
+    std::cout << "----------------------" << std::endl;
+    std::cout << "*BINARY TREES*\n\n";
+  BinaryTree btree;
 
-    btree.insert(1);
-    btree.insert(2);
-    btree.insert(3);
-    btree.insert(4);
-    btree.insert(5);
-    btree.search(4);
-    btree.DeleteNode(2);
-    std::cout << btree.search(3)->m_keyValue <<  std::endl;
-
-    btree.destroy_tree();
- */
-  
+    btree.AddLeaf(1);
+    btree.AddLeaf(2);
+    btree.AddLeaf(3);
+    btree.AddLeaf(4);
+    btree.AddLeaf(5);
+    btree.RemoveNode(2);
+    btree.PrintInOrder();
+    std::cout << std::endl;
+    std::cout << "----------------------" << std::endl;
+    system("pause");
+    
     //*********************************************************************************************************************
     //******************************************HASH TABLES****************************************************************
     //*********************************************************************************************************************
-
-    std::cout << "HASH TABLES\n\n";
+    std::cout << "----------------------" << std::endl;
+    std::cout << "*HASH TABLES*\n\n";
     HashTable hash(100);
     std::string input;
 

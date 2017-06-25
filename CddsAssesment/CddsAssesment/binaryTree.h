@@ -76,8 +76,7 @@ private:
     node* CreateLeaf(int key);
 
     /* ---- Add Leaf Private ----
-////////  Searches for the right location for the
-//////// value that was inserted into addleaf public
+    Places the leaf in the correct position 
     @param (int) - (key), (node*) - (Ptr) 
     @return (void) - (NULL)*/
     void AddLeafPrivate(int key, node* Ptr);
@@ -118,14 +117,15 @@ private:
     @void - (Null)*/
     void RemoveRootMatch();
 
-    /* ---- Remove Match ----
-//////// Removes a Match  node.
-//////// @param - (node*) parent, (node*) match, (bool) left:
-//////// match: will be the one we want to delete.
-//////// parent: will be the parent of the one we want to delete
-//////// left: will indicate the relationship between the matching node and his parent,
-//////// true = left, false = right.
-//////// @void - Null*/
+    /* --
+    -- Remove Match ----
+   Removes a Match  node.
+   @param - (node*) parent, (node*) match, (bool) left:
+   match: will be the one we want to delete.
+   parent: will be the parent of the one we want to delete
+   left: will indicate the relationship between the matching node and his parent,
+   true = left, false = right.
+   @void - Null*/
     void RemoveMatch(node* parent, node* match, bool left); 
 
 /* ---- Remove Subtree ----
