@@ -50,5 +50,11 @@
     <ClInclude Include="MitchellsExceptionalExceptions\tkException.h">
       <Filter>Source Files\MitchellsExceptionalExceptions</Filter>
     </ClInclude>
+    <ClInclude Include="StateManager.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="States.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
