@@ -31,12 +31,25 @@ public:
     g_States GetState() {
         return m_currState->getEnum();
     }
-private:
 
+    //static StateMachine* GetStateMachine(){
+    //    if (thisGSM) return thisGSM;
+    //    return thisGSM = new StateMachine();
+    //}
+
+    void StateUpdate() {
+    m_currState->Update();
+    }
+private:
     State *m_currState;
+
+    //static StateMachine* thisGSM;
 };
+
+//StateMachine* StateMachine::thisGSM = nullptr;
 
 bool getEvent(g_States & event) {
     event = g_States::MAIN;
     return true;
 }
+

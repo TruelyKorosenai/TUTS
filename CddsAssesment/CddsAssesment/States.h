@@ -1,7 +1,6 @@
 #pragma once
 #include <iostream>
 
-
 enum class g_States { INIT, MAIN, RUNNING };
 
 
@@ -22,24 +21,24 @@ public:
     // usually used to clean up resources
     virtual void onExit(g_States toState) {}
 
-private:
-
+    virtual void Update() {}
 };
+
 /******************************************************************************
 *******************************************************************************/
 class InitState : public State {
 public:
-    InitState();
-    ~InitState();
+    InitState(){}
+    ~InitState(){}
 
     virtual g_States getEnum() { return g_States::INIT; }
 
     virtual void onEnter(g_States fromState) {
         std::cout << "State:Init" << std::endl; 
-
+        system ("timeout 3 >nul");
     }
-private:
     virtual void handleEvent(g_States) {}
+private:
 };
 
 
@@ -47,12 +46,15 @@ private:
 *******************************************************************************/
 class MainState : public State {
 public:
-    MainState();
-    ~MainState();
+    MainState(){}
+    ~MainState(){}
 
     virtual g_States getEnum() { return g_States::MAIN; }
-private:
+    virtual void Update() {
+        std::cout << "State:Main" << std::endl;
+    }
     virtual void handleEvent(g_States) {}
+private:
 };
 
 
@@ -65,8 +67,8 @@ public:
 
     virtual g_States getEnum() { return g_States::RUNNING; }
 
+    virtual void handleEvent(g_States) {}
 private:
 
-    virtual void handleEvent(g_States) {}
 };
 
