@@ -7,7 +7,7 @@ public:
     ~StateMachine() {}
 
     void setState(g_States newState) {
-        g_States prevState;
+        g_States prevState = newState;
 
         if (m_currState != nullptr) {
             prevState = m_currState->getEnum();
