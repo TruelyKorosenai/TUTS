@@ -1,8 +1,5 @@
 #pragma once
-#include <iostream>
-
-
-enum class g_States { INIT, MAIN, RUNNING };
+enum class g_States { ListTest, BinaryTest, HashTableTest };
 
 
 /******************************************************************************
@@ -17,56 +14,69 @@ public:
     virtual void handleEvent(g_States) = 0; // Pure virtual
 
                                           // usually used to initialise resources
-    virtual void onEnter(g_States fromState) {}
+    virtual void onEnter(g_States fromState){}
 
     // usually used to clean up resources
-    virtual void onExit(g_States toState) {}
+    virtual void onExit(g_States toState){}
 
-private:
-
+    virtual void Update() {}
 };
-/******************************************************************************
-*******************************************************************************/
-class InitState : public State {
-public:
-    InitState();
-    ~InitState();
-
-    virtual g_States getEnum() { return g_States::INIT; }
-
-    virtual void onEnter(g_States fromState) {
-        std::cout << "State:Init" << std::endl; 
-
-    }
-private:
-    virtual void handleEvent(g_States) {}
-};
-
 
 /******************************************************************************
 *******************************************************************************/
-class MainState : public State {
+class ListTestState : public State {
 public:
-    MainState();
-    ~MainState();
+    ListTestState(){}
+    ~ListTestState(){}
 
-    virtual g_States getEnum() { return g_States::MAIN; }
-private:
+    virtual g_States getEnum() { return g_States::ListTest; }
+
+    virtual void onEnter(g_States fromState);
+
+    // usually used to clean up resources
+    virtual void onExit(g_States toState){}
+
+	virtual void Update(){}
     virtual void handleEvent(g_States) {}
+private:
 };
 
 
 /******************************************************************************
 *******************************************************************************/
-class RunningState : public State {
+class BinaryTestState : public State {
 public:
-    RunningState() {}
-    ~RunningState() {}
+	BinaryTestState(){}
+    ~BinaryTestState(){}
 
-    virtual g_States getEnum() { return g_States::RUNNING; }
+    virtual void onEnter(g_States fromState);
 
+    // usually used to clean up resources
+    virtual void onExit(g_States toState){}
+
+    virtual g_States getEnum() { return g_States::BinaryTest; }
+	virtual void Update(){}
+    virtual void handleEvent(g_States) {}
+private:
+};
+
+
+/******************************************************************************
+*******************************************************************************/
+class HashTableTestState : public State {
+public:
+	HashTableTestState() {}
+    ~HashTableTestState() {}
+
+    virtual void onEnter(g_States fromState);
+
+    // usually used to clean up resources
+    virtual void onExit(g_States toState){}
+
+    virtual g_States getEnum() { return g_States::HashTableTest; }
+	virtual void Update(){}
+    virtual void handleEvent(g_States) {}
 private:
 
-    virtual void handleEvent(g_States) {}
 };
 

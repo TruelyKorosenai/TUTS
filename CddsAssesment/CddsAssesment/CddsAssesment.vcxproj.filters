@@ -33,6 +33,9 @@
     <ClCompile Include="MitchellsExceptionalExceptions\tkString.cpp">
       <Filter>Source Files\MitchellsExceptionalExceptions</Filter>
     </ClCompile>
+    <ClCompile Include="States.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="binaryTree.h">

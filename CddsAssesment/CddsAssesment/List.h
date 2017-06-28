@@ -36,6 +36,10 @@ public:
     @return (void) - (NULL)*/
 	void PrintList ();
 
+	/*---- Search List ----
+	@return (bool) - (int)*/
+	bool SearchList(int data);
+
 
 	List ();
 	virtual ~List ();
