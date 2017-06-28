@@ -16,11 +16,12 @@ public:
         }
 
         switch (newState) {
-        case g_States::INIT: m_currState = new InitState; break;
-        case g_States::MAIN: m_currState = new MainState; break;
-        case g_States::RUNNING: m_currState = new RunningState; break;
+        case g_States::ListTest: m_currState = new ListTestState; break;
+        case g_States::BinaryTest: m_currState = new BinaryTestState; break;
+        case g_States::HashTableTest: m_currState = new HashTableTestState; break;
         }
         m_currState->onEnter(prevState);
+
     }
 
     void handleEvent(g_States event) {
@@ -32,24 +33,18 @@ public:
         return m_currState->getEnum();
     }
 
-    //static StateMachine* GetStateMachine(){
-    //    if (thisGSM) return thisGSM;
-    //    return thisGSM = new StateMachine();
-    //}
-
-    void StateUpdate() {
+     void StateUpdate() {
     m_currState->Update();
     }
+
+	 static StateMachine &GetStateMachine() {
+		 static StateMachine sm;
+		 return sm;
+	 }
 private:
     State *m_currState;
 
-    //static StateMachine* thisGSM;
+    
 };
 
-//StateMachine* StateMachine::thisGSM = nullptr;
-
-bool getEvent(g_States & event) {
-    event = g_States::MAIN;
-    return true;
-}
 

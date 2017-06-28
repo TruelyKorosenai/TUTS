@@ -77,6 +77,21 @@
         RemoveNodePrivate(key, root); 
     }
 
+	bool BinaryTree::SearchTree(int data)
+	{
+		for (node* i = root; i != nullptr;)
+		{
+			if (i->key == data) { 
+				return true; }
+			else if (i->key < data) { 
+				i = i->left; }
+			else {
+				i = i->right; }
+		}
+
+		return false;
+	}
+
 //-------------------------------------------------------------------------------------------------------------------------------
     //----CreateLeaf----
     BinaryTree::node * BinaryTree::CreateLeaf(int key){

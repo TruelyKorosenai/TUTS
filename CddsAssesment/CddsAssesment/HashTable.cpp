@@ -1,6 +1,6 @@
 #include "HashTable.h"
 
-HashTable::HashTable(int tablesize){
+HashTable::HashTable(int tablesize) : m_tableSize(tablesize){
     m_HashTable.resize(tablesize); //resize the vector
     for (int i = 0; i < (int)m_HashTable.size(); i++){ //initialise our table
         //create index at every new item
@@ -84,8 +84,8 @@ void HashTable::PrintTable(){
         number = NumberOfItemsInIndex(i);
         std::cout << "----------------\n";
         std::cout << "index = " << i << std::endl;
-        std::cout << m_HashTable[i]->key << "\n";
-        std::cout << m_HashTable[i]->value << "\n";
+        std::cout << HashFunc( m_HashTable[i]->key ) << "\n";
+        std::cout << m_HashTable[i]->value.c_str() << "\n";
 
         std::cout << "number of items = " << number << "\n";
         std::cout << "----------------\n";
@@ -123,23 +123,30 @@ int HashTable::PrintItemsInIndex(int index){
 //----FIND VALUE----
 
 void HashTable::FindValue(std::string key){
-    int index = HashFunc(key);
+    /*int index = HashFunc(key);
     bool foundName = false;
   
     std::string value;
-
-    item* Ptr = m_HashTable[index];
-    while (Ptr != nullptr){ 
+    int count = 0;
+    item* Ptr = m_HashTable[0];
+    while (count < m_tableSize - 1){
+        count++;
         if (Ptr->key == key){
             foundName = true;
             value = Ptr->value;
-            std::cout << "The value associated with " << key << " = " << value << "\n";
+            std::cout << "The value associated with " << key.c_str() << " = " << value.c_str() << "\n";
+            return;
         }
-        Ptr = Ptr->next;
-    }
-    if(foundName == false){
-        std::cout << "The key -> " << key << " Was not found in the Hash Table\n";
-    }
+        Ptr = m_HashTable[count];
+    }*/
+    int index = HashFunc(key);
+    item* Ptr = m_HashTable[index];
+
+    std::cout << "The value associated with " << HashFunc(Ptr->key) << " = " << Ptr->value.c_str() << "\n";
+
+    //if(foundName == false){
+    //    std::cout << "The key -> " << key.c_str() << " Was not found in the Hash Table\n";
+    //}
         
 }
 

@@ -1,6 +1,15 @@
 #include <iostream>
 
 #include "List.h"
+bool List::SearchList(int data)
+{
+	for (node* i = m_head; i != nullptr; i= i->next)
+	{
+		if( i->data == data) { return true; }
+
+	}
+	return false;
+}
 /****************************************/
 /*******Constructors/Deconstructor*******/
 /****************************************/

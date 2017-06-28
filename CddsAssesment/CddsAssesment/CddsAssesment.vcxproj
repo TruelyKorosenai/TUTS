@@ -165,6 +165,7 @@
     <ClCompile Include="List.cpp" />
     <ClCompile Include="MitchellsExceptionalExceptions\tkString.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="States.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="binaryTree.h" />

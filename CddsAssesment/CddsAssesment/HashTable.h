@@ -17,6 +17,8 @@ public:
     @Param int (tablesize)*/
     HashTable(int tablesize);
 
+    int Size(){ return m_tableSize; }
+
     /*---- Add Item ----
     @param (key, value) - (std:string)
     @return (void) - (null)*/
@@ -50,11 +52,6 @@ public:
     @return (void) - (Null)*/
     void RemoveItem(std::string key);
 
-//*********************************************************************************************************************
-//******************************************//PRIVATE//****************************************************************
-//*********************************************************************************************************************
-private:
-
     /* ---- Hash ----
     Evaluates the (key) value, Casts to an integer of the hash table.
     returns the integer value that represents the location 
@@ -62,6 +59,12 @@ private:
     @param (addData) - (key) passes in a string variable
     @return (int) - (index) value*/
     int HashFunc(std::string key);
+
+//*********************************************************************************************************************
+//******************************************//PRIVATE//****************************************************************
+//*********************************************************************************************************************
+private:
+    int m_tableSize;
 
     /*---- NumberOfItemsInIndex ----
     @param (int) - (index)
